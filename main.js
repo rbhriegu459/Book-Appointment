@@ -42,6 +42,19 @@ function onsubmit(e){
 
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(`${obj.name} : ${obj.email}`));
+        li.id = obj.email;
         user.appendChild(li);
+
+        // Adding a delete button for deleting the details
+        const addBtn = document.createElement('button');
+        addBtn.className = "delBtn";
+        addBtn.appendChild(document.createTextNode("Delete"));
+        li.appendChild(addBtn);
+
+        addBtn.addEventListener('click', (e) =>{
+            e.preventDefault();
+            localStorage.removeItem(email);
+            user.removeChild(document.getElementById(obj.email));
+        });
     }
 };
