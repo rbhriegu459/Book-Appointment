@@ -38,7 +38,10 @@ function onsubmit(e){
         };
         let obj_serailized = JSON.stringify(obj);
 
-        localStorage.setItem("obj",obj_serailized);
-        console.log(localStorage)
+        localStorage.setItem(obj.email ,obj_serailized);
+
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${obj.name} : ${obj.email}`));
+        user.appendChild(li);
     }
 };
