@@ -56,5 +56,22 @@ function onsubmit(e){
             localStorage.removeItem(email);
             user.removeChild(document.getElementById(obj.email));
         });
+
+        // Adding a edit button for editing the details
+        const addEditBtn = document.createElement('button');
+        addEditBtn.className = "editBtn";
+        addEditBtn.appendChild(document.createTextNode("Edit"));
+        li.appendChild(addEditBtn);
+
+        addEditBtn.addEventListener('click', (e) =>{
+            // popullating the values to the input-
+            name.value = obj.name;
+            email.value = obj.email;
+
+            // removing the element from storage and screen-
+            e.preventDefault();
+            localStorage.removeItem(email);
+            user.removeChild(document.getElementById(obj.email));
+        });
     }
 };
