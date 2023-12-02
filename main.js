@@ -3,11 +3,15 @@ const user = document.querySelector('#users');
 
 sub.addEventListener('click', onsubmit);
 
-// axios.get('https://crudcrud.com/api/1c1f911c9bb64573857d6f80f1bde3f0/BookingData')
-//     .then(res => {
-//         showOutput(res);
-//     })
-//     .catch(err => console.log(err));
+window.addEventListener("DOMContentLoaded", ()=>{
+    axios.get('https://crudcrud.com/api/1c1f911c9bb64573857d6f80f1bde3f0/BookingData')
+    .then(res => {
+        for(var i = 0; i<res.data.length;i++){
+            showOutput(res.data[i]);
+        }
+    })
+    .catch(err => console.log(err));
+})
 
 function onsubmit(e){
     e.preventDefault();
