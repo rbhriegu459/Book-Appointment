@@ -82,18 +82,22 @@ function showOutput(obj){
 
     addBtn.addEventListener('click', (e) =>{
                 e.preventDefault();
-                localStorage.removeItem(email);
+
+                const idOfPost = obj._id;
+                axios.delete(`https://crudcrud.com/api/1c1f911c9bb64573857d6f80f1bde3f0/BookingData/${idOfPost}`)
+                    .then(res => console.log(res))
+                    .catch(err => console.log(err));
                 user.removeChild(document.getElementById(obj.email));
             });
     
-    addEditBtn.addEventListener('click', (e) =>{
-        // popullating the values to the input-
-        name.value = obj.name;
-        email.value = obj.email;
+    // addEditBtn.addEventListener('click', (e) =>{
+    //     // popullating the values to the input-
+    //     name.value = obj.name;
+    //     email.value = obj.email;
     
-        // removing the element from storage and screen-
-        e.preventDefault();
-        localStorage.removeItem(email);
-        user.removeChild(document.getElementById(obj.email));
-    });
+    //     // removing the element from storage and screen-
+    //     e.preventDefault();
+    //     localStorage.removeItem(email);
+    //     user.removeChild(document.getElementById(obj.email));
+    // });
 }
